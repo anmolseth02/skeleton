@@ -31,7 +31,8 @@ public class TagsDao {
         if (tagsRecordList != null && tagsRecordList.size() > 0) {
             for (TagsRecord record : tagsRecordList) {
                 dsl.deleteFrom(TAGS)
-                        .where(TAGS.ID.eq(record.getId()));
+                        .where(TAGS.ID.eq(record.getId()))
+                        .execute();
 
                 // return after just one iteration
                 return -1;
